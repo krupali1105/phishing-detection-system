@@ -5,7 +5,6 @@ import ResultCard from "./ResultCard";
 import LLMAnalysisCard from "./LLMAnalysisCard";
 import AnalyticsDashboard from "./AnalyticsDashboard";
 import HistoryPanel from "./HistoryPanel";
-import LoadingSpinner from "./LoadingSpinner";
 import ModernLoader from "./ModernLoader";
 import PageLoading from "./PageLoading";
 
