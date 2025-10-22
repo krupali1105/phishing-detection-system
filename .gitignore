@@ -184,6 +184,9 @@ dmypy.json
 # NLTK data files (large, downloadable)
 models/nltk_data/
 
+# Sensitive data files
+models/data/malicious_phish.csv
+
 # Docker
 .dockerignore
 
