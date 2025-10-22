@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: phishing-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./phishing_detection.db
+    volumes:
+      - ./backend/app/models:/app/app/models
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+  frontend:
+    build: ./frontend
+    container_name: phishing-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_BASE=http://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+
+
